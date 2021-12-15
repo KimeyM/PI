@@ -1,22 +1,43 @@
 const { Router } = require('express');
-const { Op, Sequelize } = require('sequelize');
+const { Op } = require('sequelize');
 const {Country, Activity} = require("../db");
 const router = Router(); 
 
+// GET /countries?name="...":
+// Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)
+// Si no existe ningún país mostrar un mensaje adecuado
 
 // GET /countries:
 // En una primera instancia deberán traer todos los países desde restcountries y guardarlos en su propia base de datos y luego ya utilizarlos desde allí (Debe almacenar solo los datos necesarios para la ruta principal)
 // Obtener un listado de los paises.
-router.get('/', (req, res) => {
-    return Country.findAll({ //enconrtar todo lo de country
-        order: [['name', 'ASC']], //ordernarlo por nombre asc
-        attributes: ['name'] //solo me pide listado de paises(paso solo el nombre)
-    })
-    .then(countries => { //una vez que lo tenga lo guardo en countries
-        res.send(countries) //y como response mando lo recibido
-    })
+router.get('/', async (req, res) => { //funcion asincrona
+    try { //intenta
+        const { name } = req.query; //traigo el name de req.query porque la consigna indica la ruta /countries?name="..."
+        if(!name){ //si no se pasa ningun name, es decir /countries
+        const allCountries = await Country.findAll({ //enconrtar todo lo de country
+            order: [['name', 'ASC']], //ordernarlo por nombre de manera asc
+            attributes: ['name'] //solo me pide listado de paises(paso solo el nombre)
+        })
+        res.send(allCountries) //como response paso lo encontrado arriba
+    }else if(name){ //en caso de tener nombre
+        const countrySearch = await Country.findAll({ //encontrar en todo lo de country
+            where: { //donde:
+                name:   {[Op.iLike]: `%${name}%`}, //name se aproximadamente parecido a lo que se pasa
+                //[Op.iLike]: '%hat',   // ILIKE '%hat' (case insensitive)
+                //
+            },
+            include: { //incluyendo
+                model: Activity //el model activity
+            }
+        })
+        if(countrySearch.length > 0){ //si en la ultima busqueda se encontro algo
+            res.json(countrySearch); // responder con lo que se encontro
+        } else { //si no
+            res.status(404).send("Country not found"); //error y msje
+        }
+    }
+    } catch (error) {console.error(error)} //en caso de no pode hacer dnada de lo que sta dentro del try, con
 });
-
 
 // GET /countries/{idPais}:
 // Obtener el detalle de un país en particular
@@ -33,21 +54,5 @@ router.get('/:id', async (req, res) => { //funcion asincrona
         console.log(error);
     }
 });
-
-
-// GET /countries?name="...":
-// Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)
-// Si no existe ningún país mostrar un mensaje adecuado
-router.get('/?name', async (req, res) => {
-    try {
-        const { name } = req.query
-        const countryName = Country.findOne({ where: { name: name } })
-        res.send(countryName)
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-
 
 module.exports = router;
