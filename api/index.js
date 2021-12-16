@@ -19,7 +19,8 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const { default: axios } = require('axios'); //para llamar a la api
 const server = require('./src/app.js'); 
-const { conn, Country, Activity } = require('./src/db.js'); //traigo los models desde db
+const { conn, Country, Activity } = require('./src/db.js');
+const {activitiesBulk} = require("./activitiesBulk"); //traigo los models desde db
 // const {activitiesBulk} = require("./activitiesBulk"); //traigo este archivo
 
 // Syncing all the models at once.
@@ -50,20 +51,6 @@ conn.sync({ force: true }).then(async () => { //sera asincrona
   } catch (err) { //si no logra nada de lo anterior
     console.error(err) //muestra error
   }
-  //NO SE POR QUE CREO EL ARCHIVO ACTIVITIESBULK NI ESTA FUNCION. EN TEORIA LAS ACTIVIDADES ESTAN VACIAS Y SE PUEDEN IR CREANDO NADA MAS
-  // try { //intenta
-  //   activitiesBulk.map(async (el) => { //mapear activitiesBulk, de manera asincrona
-  //     let newActivity = await Activity.create({ //crea nueva activity con la siguiente informacion y espera el tiempo necesario 
-  //       name: el.name,
-  //       duration: el.duration,
-  //       difficulty: el.difficulty,
-  //       season: el.season,
-  //     })
-  //     await newActivity.addCountry(el.countryId) //agrega la newactivity al country(pasando id del country como parametro)
-  //   })
-  // } catch (err) { //si no lo logra muestra error
-  //   console.error(err)
-  // }
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
