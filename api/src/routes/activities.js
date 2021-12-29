@@ -27,13 +27,22 @@ router.post('/', async function (req, res){
   }
   })
 
-// // router.get("/", (req, res) => {
-// //     return Activity.findAll()
-// //     .then(activities => {
-// //         res.send(activities)
-// //     })
-// // })
-
+// router.get("/", (req, res) => {
+//     return Activity.findAll()
+//     .then(activities => {
+//         res.send(activities)
+//     })
+// })
+router.get("/", async (req, res) => {
+  try {
+      //const {name, difficulty, duration, season, countries } = req.body;
+      const activity = await Activity.findAll()
+      
+      res.json(activity)
+  } catch (error) {
+      console.error(error);
+  }
+})
 // // router.post("/", async (req, res, next) => {
 // //     const {name, difficulty, duration, season, countryId} = req.body
 // //     try {

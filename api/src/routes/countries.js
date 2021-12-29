@@ -16,7 +16,7 @@ router.get('/', async (req, res) => { //funcion asincrona
         if(!name){ //si no se pasa ningun name, es decir /countries
         const allCountries = await Country.findAll({ //enconrtar todo lo de country
             order: [['name', 'ASC']], //ordernarlo por nombre de manera asc
-            attributes: ['name'] //solo me pide listado de paises(paso solo el nombre)
+            // attributes: ['name', 'flag', 'continent'] 
         })
         res.send(allCountries) //como response paso lo encontrado arriba
     }else if(name){ //en caso de tener nombre

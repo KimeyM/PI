@@ -20,7 +20,7 @@
 const { default: axios } = require('axios'); //para llamar a la api
 const server = require('./src/app.js'); 
 const { conn, Country, Activity } = require('./src/db.js');
-const {activitiesBulk} = require("./activitiesBulk"); //traigo los models desde db
+// const {activitiesBulk} = require("./activitiesBulk"); //traigo los models desde db
 // const {activitiesBulk} = require("./activitiesBulk"); //traigo este archivo
 
 // Syncing all the models at once.
@@ -37,7 +37,7 @@ conn.sync({ force: true }).then(async () => { //sera asincrona
             id: country.cca3,
             name: country.name.common,
             flag: country.flags.png,
-            continent: country.continents ? country.continents[0] : "Continent not found",
+            continent: country.region,
             capital: country.capital ? country.capital[0] : "Capital not found",
             subregion: country.subregion ? country.subregion : "Subregion not found",
             area: country.area,
