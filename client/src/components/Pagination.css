@@ -1,0 +1,29 @@
+ul {
+  display: inline-flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 30;
+}
+
+li {
+  display: inline;
+}
+
+.pag {
+  margin: 10px, 10px;
+  color: #fff;
+  border: none;
+  background-color: #0000;
+  border-radius: 500px;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 10px;
+  font-family: "bebas neue";
+  font-size: 30px;
+}
+
+.pag:hover {
+  background-color: #656263;
+  color: #000;
+}

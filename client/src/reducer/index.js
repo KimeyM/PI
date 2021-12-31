@@ -2,7 +2,6 @@ const initialState = {
     countries: [],
     allCountries: [],
     activities: [],
-    allActivities: []
   }
   
   function rootReducer(state = initialState, action) {
@@ -23,30 +22,41 @@ const initialState = {
         ...state,
         countries: action.payload === "none" ? state.allCountries : state.allCountries.filter(e => e.continent === action.payload)
       }
+      case "POST_ACTIVITY":
+          return {
+            ...state,
+            activities: [...state.activities, action.payload]
+        }
       case "GET_ALL_ACTIVITIES":
         return {
           ...state,
           activities: action.payload,
-          allActivities: action.payload
+          // allActivities: action.payload
         }
-
+      //   case 'FILTER_BY_ACTIVITY':
+      
         case "FILTER_CREATED":
-          // const allActivities = state.allActivities
-          // const createdFilter = action.payload === "name" ? allActivities.filter(el => el.name) : allActivities.filter(el => el.name)
-          // return {
+          // return{
           //   ...state,
-          //   activities: action.payload === "All" ? state.allActivities : createdFilter
+          //   countries: action.payload === "All" ? state.allCountries : state.allCountries.filter(e => e.activities === action.payload)
           // }
+              return {
+              ...state,
+              countries: state.countries.filter((c)=>{return c.activities?.some((a)=> a.name === action.payload)})
+      }
           
-          return {
-            ...state,
-            activities: action.payload === "All" ? state.allActivities : state.allActivities.filter(e => e.name === action.payload)
-          }
+            // const allCountries = state.allCountries
+            // const statusFiltered =
+            //   action.payload === 'All'
+            //     ? allCountries
+            //     : allCountries.filter(el => el.activities === action.payload)
+            // //hacer la logica antes del return, si no rompe
+            // return {
+            //   ...state,
+            //   countries: statusFiltered,
+            // }
 
-        case "POST_ACTIVITY":
-          return {
-            ...state,
-          }
+        
           
     case 'ORDER_BY_POPULATION':
       let sortedAr = action.payload === 'population_asc' ? state.countries.sort(function (a, b){

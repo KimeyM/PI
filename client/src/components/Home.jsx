@@ -1,11 +1,12 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, filterCreated, orderByName, orderByPopulation, filterCountriesByContinents, getAllActivities, postActivity } from '../actions';
+import { getCountries, filterCreated, orderByName, orderByPopulation, filterCountriesByContinents, getAllActivities } from '../actions';
 import {Link} from 'react-router-dom'
 import Card from './Card';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
+import './Home.css'
 
 
 export default function Home(){
@@ -61,46 +62,44 @@ export default function Home(){
 
 
     return(
-        <div>
-            <Link to = '/activity'>
-                <button>Create tourist activity</button>
-            </Link>
+        <div className='home'>
+           <div className='countriesapp'>COUNTRIES APP</div>
             
             <div>
-                <SearchBar/>
-                
-                Order by name: <select onChange = {e => handleSortN(e)}>
-                <optgroup label="NAME">
+                <div className='ordernfilter'>
+                 <Link to = '/activity' style={{ textDecoration: 'none' }}>
+                    <button className="bn3638 bn38">Create tourist activity</button>
+                </Link>
+               
+                <div className='name'><div className='title'>Order by name:</div>  <select onChange = {e => handleSortN(e)}>
                     <option value = 'name_asc'>A → Z</option>
                     <option value = 'name_desc'>Z → A</option>
-                    </optgroup>
                 </select>
-                Order by population:<select onChange = {e => handleSortP(e)}>
-                <optgroup label="POPULATION">
+                </div>
+                <div className='pop'>
+                <div className='title'>Order by population:</div><select onChange = {e => handleSortP(e)}>
                     <option value = 'population_asc'>- → +</option>
                     <option value = 'population_desc'>+ → -</option>
-                </optgroup>
                 </select>
-                Filter by continent:<select onChange={e => handleFilterContinent(e)}>
-                <optgroup label="CONTINENT">
+                </div>
+                <div className='cont'><div className='title'>Filter by continent:</div><select onChange={e => handleFilterContinent(e)}>
                     <option value = 'none'>All</option>
                     <option value = 'Asia'>Asia</option>
                     <option value = 'Americas'>America</option>
                     <option value = 'Africa'>Africa</option>
                     <option value = 'Europe'>Europe</option>
                     <option value = 'Oceania'>Oceania</option>
-                    </optgroup>
                 </select>
-
-                Filter by activities<select onChange = {e => handleFilterActivities(e)}>
-                    <optgroup label="ACTIVITIES">
+                </div>
+                <div className='act'><div className='title'>Filter by activities</div><select onChange = {e => handleFilterActivities(e)}>
                     <option value = 'All'>All</option>
                     {
                         activities.map(e => <option value = {e.name} key = {e.id}>{e.name}</option>)
                     }
-                    </optgroup>
                 </select>
-                
+                </div>
+                <SearchBar/>
+            </div>
                 {/* <FilterByActivity activitySt={activitySt} handleFilterAct={handleFilterAct}/> */}
                 
                 <Pagination countriesPerPage = {countriesPerPage}
@@ -109,17 +108,18 @@ export default function Home(){
 
            
 
-
+<div className='grid'>
                 {currentCountries?.map(el => { //mapeamos renderizamos la pagina seleccionada (1, 2 ...) 
                         return(
-                            <div>
-                                <Link to={"/countries/" + el.id}>
+                            <div className='cards'>
+                                <Link to={"/countries/" + el.id} style={{ textDecoration: 'none' }}>
                                     <Card name = {el.name} flag= {el.flag} continent = {el.continent} key={el.id}/>
                                 </Link>
                             </div>
                         );
                     })
                 } 
+                </div>
             </div>
 
         </div>

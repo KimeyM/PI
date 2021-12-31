@@ -1,0 +1,26 @@
+.both {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  margin-top: 10px;
+  background-color: black;
+  border: none;
+  outline: none;
+  border-radius: 1px;
+  font-family: "ge body";
+  font-size: 15px;
+  width: 170px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.input::placeholder {
+  color: #656263;
+}
+
+.input:focus {
+  cursor: text;
+  color: #fff;
+}
