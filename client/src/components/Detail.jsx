@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react"
-import axios from 'axios'
-import { useParams } from "react-router"
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import ActivityDetails from "./ActivityDetails"
-import "./Detail.css"
+import ActivityDetails from './ActivityDetails';
+import './Detail.css';
 
 
 const DetailCountry = () => {
-    let params = useParams()
+    let params = useParams();
 
-    const [details, setDetails] = useState({})
+    const [details, setDetails] = useState({});
 
     useEffect(() => {
         async function detailss(){
-            let response = await axios.get("http://localhost:3001/countries/" + params.id)
-            let data = response.data
-            setDetails(data)
-        } detailss()
-    }, [])
+            let response = await axios.get('http://localhost:3001/countries/' + params.id);
+            let data = response.data;
+            setDetails(data);
+        } detailss();
+    }, []);
 
     return (
         
@@ -36,7 +36,6 @@ const DetailCountry = () => {
                 </div>
             </div>
 
-            
             <div className="detailContainer">
                 <div className="detailName">{details.name}</div>
                 <img className="imagenn" src = {details.flag} alt="no" />
@@ -48,16 +47,17 @@ const DetailCountry = () => {
                    <a className="tit">Area:</a> <a className="var">{Number(details.area).toLocaleString()} km² </a><br />
                    <a className="tit">Population:</a> <a className="var">{Number(details.population).toLocaleString()}</a>
                 </div>
-                
             </div>
+
             <div className="acts">
-                <a className="touract">Tourist activities</a>{
+                <a className="touract">Tourist activities</a>
+                {
                     details.activities ?
                     <ActivityDetails details={details.activities}/>
                     : <></>
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 export default DetailCountry;

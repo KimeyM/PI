@@ -1,8 +1,6 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
-  // defino el modelo
   Country = sequelize.define('country', {
     id: {
       type: DataTypes.STRING(3),
@@ -30,15 +28,9 @@ module.exports = (sequelize) => {
     },
     area: {
       type: DataTypes.INTEGER
-      // get(){
-      //   return this.getDataValue('area')?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + " Km2";
-      // }
     },
     population: {
       type: DataTypes.INTEGER
-      /* get(){
-        return this.getDataValue('population')?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-      } */
     }
   }, {
     timestamps: false

@@ -27,3 +27,8 @@ li {
   background-color: #656263;
   color: #000;
 }
+
+.pag:focus {
+  background-color: #656263;
+  color: #000;
+}

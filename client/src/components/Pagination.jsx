@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import './Pagination.css'
 
 
 export default function Pagination({countriesPerPage, allCountries, pagination}){
     const pageNumbers = []
 
-    for (let i=1; i<=Math.ceil(allCountries/countriesPerPage); i++){
+    for (let i = 1; i <= Math.ceil(allCountries/countriesPerPage); i++){
         pageNumbers.push(i)
     }
 
@@ -14,17 +14,14 @@ export default function Pagination({countriesPerPage, allCountries, pagination})
             <ul>
                 {pageNumbers && pageNumbers.map((num) => (
                     <div>
-                    <li className='number' key={num}>
-                        <button className="pag"
-                            onClick={() => pagination(num)}
-                            >
-                            {num}
+                        <li className='number' key={num}>
+                            <button className='pag' onClick={() => pagination(num)}>
+                                {num}
                             </button>
-                    </li>
-                   
-               </div>
+                        </li>
+                    </div>
                ))}
             </ul>
         </nav>
-    )
-}   
+    );
+};

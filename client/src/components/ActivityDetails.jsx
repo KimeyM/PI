@@ -1,4 +1,4 @@
-import "./ActivityDetails.css"
+import './ActivityDetails.css'
 export default function ActivityDetails({details}) {
     return (
         <div className="activities">
@@ -6,16 +6,17 @@ export default function ActivityDetails({details}) {
                 details.length > 0 ?
                 details.map(el => {
                     return (
-                        <div className="activitiesDiv" key={el.id}>
+                        <div key={el.id}>
                             <p className="actname" key={el.id}>{el.name}</p>
                             <p>Difficulty {el.difficulty} <br />
                             {el.duration} <br />
-                            {el.season}</p>
+                            {el.season}
+                            </p>
                         </div>
-                    )
+                    );
                 })
                : <p className="noact">No Activities</p>
-            }
+            };
         </div>
-    )
-}
+    );
+};
