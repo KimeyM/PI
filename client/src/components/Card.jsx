@@ -11,6 +11,7 @@ export default function Card ({ flag, name, continent }) {
                 {name} <br/>
                 ‣ {continent}
             </div>
+            {/* <p className='tiny'>view details</p> */}
         </div>
     );
 };

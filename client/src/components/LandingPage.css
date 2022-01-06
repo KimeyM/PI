@@ -9,8 +9,8 @@ div.landing {
 h1 {
   font-family: "Lemon/Milk";
   font-size: 150px;
-  color: rgb(0, 0, 0);
-  text-shadow: 14px 6px 5px rgba(0, 0, 0, 0.57);
+  color: white;
+  text-shadow: 14px 6px 5px rgba(0, 0, 0, 0.8);
   text-align: center;
   animation: myAnim 3s ease 0s 1 normal forwards;
 }

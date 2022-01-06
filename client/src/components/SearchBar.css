@@ -4,14 +4,14 @@
 }
 
 .input {
-  margin-top: 10px;
   background-color: black;
   border: none;
   outline: none;
-  border-radius: 1px;
+  border-radius: 3%;
+  padding: 10px;
   font-family: "ge body";
   font-size: 15px;
-  width: 170px;
+  width: 200px;
   height: 30px;
   padding-left: 10px;
 }

@@ -13,10 +13,10 @@ export default function ActivityDetails({details}) {
                             {el.season}
                             </p>
                         </div>
-                    );
+                    )
                 })
                : <p className="noact">No Activities</p>
-            };
+            }
         </div>
     );
 };

@@ -16,10 +16,9 @@ export default function Home(){
     const activities = useSelector ((state) => state.activities);
     const [orden, setOrden] = useState('');
     const [currentPage,setCurrentPage] = useState(1);
-    const [countriesFirstPage, setCountriesFirstPage] = useState(9);
     const [countriesPerPage, setCountriesPerPage] = useState(10);
-    const indexOfLastCountry = currentPage * countriesPerPage || currentPage * countriesFirstPage; 
-    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage || indexOfLastCountry - countriesFirstPage;
+    const indexOfLastCountry = currentPage * countriesPerPage 
+    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage 
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
 
 
@@ -27,10 +26,10 @@ export default function Home(){
         setCurrentPage(pageNumber);
     };
 
-    useEffect (() =>{
+    useEffect (() => {
         dispatch(getCountries());
         dispatch(getAllActivities());
-    }, [dispatch]);
+    }, [dispatch]); 
 
 
     function handleSortN (e) {
@@ -70,6 +69,7 @@ export default function Home(){
                     <div className='name'>
                         <div className='title'>Order by name:</div> 
                         <select onChange = {e => handleSortN(e)}>
+                            <option value = 'none'>No order</option>
                             <option value = 'name_asc'>A → Z</option>
                             <option value = 'name_desc'>Z → A</option>
                         </select>
@@ -78,6 +78,7 @@ export default function Home(){
                     <div className='pop'>
                         <div className='title'>Order by population:</div>
                         <select onChange = {e => handleSortP(e)}>
+                            <option value = 'none'>No order</option>
                             <option value = 'population_asc'>- → +</option>
                             <option value = 'population_desc'>+ → -</option>
                         </select>
@@ -86,7 +87,7 @@ export default function Home(){
                     <div className='cont'>
                         <div className='title'>Filter by continent:</div>
                         <select onChange={e => handleFilterContinent(e)}>
-                            <option value = 'none'>All</option>
+                            <option value = 'none'>No filter</option>
                             <option value = 'Asia'>Asia</option>
                             <option value = 'Americas'>America</option>
                             <option value = 'Africa'>Africa</option>
@@ -98,9 +99,9 @@ export default function Home(){
                     <div className='act'>
                         <div className='title'>Filter by activities</div>
                         <select onChange = {e => handleFilterActivities(e)}>
-                            <option value = 'All'>All</option>
+                            <option value='none'>No filter</option>
                             {
-                                activities.map(e => <option value = {e.name} key = {e.id}>{e.name}</option>)
+                               activities.map(e => <option value = {e.name} key = {e.id}>{e.name}</option>)
                             }
                         </select>
                     </div>

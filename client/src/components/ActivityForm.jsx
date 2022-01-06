@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCountries, postActivity } from '../actions/index';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Validate from './Validate';
 import './ActivityForm.css'
 
 export default function ActivityForm(){
     let countries = useSelector(state => state.countries);
-    let history = useNavigate();
+    // let history = useNavigate();
     let dispatch = useDispatch();
 
     useEffect(() => {
@@ -71,7 +71,6 @@ export default function ActivityForm(){
         });
         setCountry([]);
         alert('Activity Created');
-        history('/countries');
     };
 
     return (

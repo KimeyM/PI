@@ -45,7 +45,7 @@ const DetailCountry = () => {
                    <a className="tit">Subregion:</a> <a className="var">{details.subregion}</a> <br />
                    <a className="tit">Capital:</a> <a className="var">{details.capital}</a> <br />
                    <a className="tit">Area:</a> <a className="var">{Number(details.area).toLocaleString()} km² </a><br />
-                   <a className="tit">Population:</a> <a className="var">{Number(details.population).toLocaleString()}</a>
+                   <a className="tit">Population:</a> <a className="var">{Number(details.population).toLocaleString()} habitantes</a>
                 </div>
             </div>
 

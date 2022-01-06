@@ -82,7 +82,7 @@ const initialState = {
       case 'FILTER_CREATED':
         return {
           ...state,
-          countries: state.allCountries.filter((c)=>{return c.activities?.some((a)=> a.name === action.payload)})
+          countries: action.payload === 'none' ? state.allCountries : state.allCountries.filter((c)=>{return c.activities?.some((a)=> a.name === action.payload)})
         };
  
       default:

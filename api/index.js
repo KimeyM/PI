@@ -40,7 +40,7 @@ const { conn, Country, Activity } = require('./src/db.js');
 //               subregion: country.subregion ? country.subregion : 'Subregion not found',
 //               area: country.area,
 //               population: country.population || 0
-//             };
+//             }
 //           }));
 //         } catch (err) { 
 //           console.error(err);

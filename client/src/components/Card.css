@@ -1,5 +1,5 @@
 .cardcountry {
-  border-radius: 3%;
+  border-radius: 1%;
   border: solid 2px #656263;
   box-shadow: 10px 10px 20px 1px rgba(112, 112, 112, 0.2);
   margin: 20px;
@@ -30,6 +30,15 @@ img {
   margin: -2px;
   padding: 25px;
   box-shadow: 20px 20px 20px 1px rgba(112, 112, 112, 0.4);
+  background-color: #65626356;
+}
 
-  /* background-image: url("../img/230318-black-textured-wallpaper-top-free-black-textured-background.jpg"); */
+.tiny {
+  text-align: right;
+  font-family: "ge body";
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 10px;
+  color: #656263;
 }
