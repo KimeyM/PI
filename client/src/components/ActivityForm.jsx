@@ -60,7 +60,9 @@ export default function ActivityForm(){
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        if(!activities.name){
+            alert('Fail')
+        } else {
         dispatch(postActivity(activities));
         setActivities({
             name: "",
@@ -71,19 +73,27 @@ export default function ActivityForm(){
         });
         setCountry([]);
         alert('Activity Created');
+    }
+    window.location.reload("/countries");
     };
 
     return (
         <form>
             <div>
-                <div className='countriesapp'>COUNTRIES APP</div>
+                <div className='countriesapp'>CREATE ACTIVITY</div>
 
                 <div className='nav'>
-                    <div className='soloback'>
-                        <Link style={{ textDecoration: 'none' }} to='/countries' >
-                            <button className="bn3639 bn39" >Home</button>
-                        </Link>
-                    </div>
+                    <button className="bn3639 bn39" >
+                        <a href='#home' style={{ textDecoration: 'none' }}>
+                            Home
+                        </a>
+                        
+                    </button>
+                    <button className="bn3639 bn39" >
+                        <a href='#about' style={{ textDecoration: 'none' }}>
+                            About
+                        </a>
+                    </button>
                 </div>
 
                 <div className='inputss'>
@@ -93,42 +103,43 @@ export default function ActivityForm(){
                             <p className='head'>Name</p>
                             <input type="text" placeholder="Name" name="name" id="name" value={activities.name} onChange={(e) => handleChange(e)} required className={errors.name && "error"}/>
                             {
-                                errors.name && (
+                                errors.name ? (
                                     <p className="errorP">{errors.name}</p>
-                                )
+                                ) : <p className='invisible'>error</p>
                             }
                         </div>
+                       <br />
                         <div className='justduration'>
                             <p className='head'>Duration</p>
                             <input type="text" placeholder="Duration" name="duration" id="name" value={activities.duration} onChange={(e) => handleChange(e)} required className={errors.duration && "error"}/>
                             {
-                                errors.duration && (
+                                errors.duration ? (
                                     <p className="errorP">{errors.duration}</p>
-                                )
+                                ) : <p className='invisible'>error</p>
                             }
                         </div>
                     </div>
                     
-                    <div className="div3">
+                    {/* <div className="div3"> */}
                         <div className="difficultyForm">
                         <p className='headd'>Difficulty</p>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="difficulty" id="veryEasy" value="1" onChange={(e) => handleChange(e)} required defaultChecked/>
                                 <label htmlFor="veryEasy">Very Easy</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="difficulty" id="easy" value="2" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="easy">Easy</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="difficulty" id="medium" value="3" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="medium">Medium</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="difficulty" id="hard" value="4" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="hard">Hard</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="difficulty" id="veryHard" value="5" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="veryHard">Very Hard</label>
                             </div>
@@ -136,26 +147,25 @@ export default function ActivityForm(){
 
                         <div className="seasonForm">
                         <p className='heads'>Season</p>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="season" id="winter" value="winter" onChange={(e) => handleChange(e)} defaultChecked required/>
                                 <label htmlFor="winter">Winter</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="season" id="spring" value="spring" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="spring">Spring</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="season" id="summer" value="summer" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="summer">Summer</label>
                             </div>
-                            <div className="inputContainer">
+                            <div className="inputGroup">
                                 <input type="radio" name="season" id="autumn" value="autumn" onChange={(e) => handleChange(e)} required/>
                                 <label htmlFor="autumn">Autumn</label>
                             </div>
                         </div>
-                    </div>
+                    {/* </div> */}
                     
-                    <div className='pa'>
                         <div className='selcoun'>
                             <p className='head'>Select a Country</p>
                             <select className='fknselect' name="countries" defaultValue="" onChange={(e) => handleCountryId(e)} required>
@@ -166,6 +176,8 @@ export default function ActivityForm(){
                                 }
                             </select>
                         </div>
+                        </div>
+                        
 
                         <div className='theones'>
                             <p className='head'>Selected countries</p>
@@ -184,13 +196,12 @@ export default function ActivityForm(){
                                 }
                             </div>
                         </div>
-                    </div>
 
                     <div className='btnsubmit' >
-                            <button className='bn3132 bn32'
+                            <button className='bn5978 bn78'
                             onClick={handleSubmit} type="submit" disabled={errors.name || errors.duration ? true : false}>Submit</button>
                     </div>
-                </div>
+                
             </div>
         </form>
     );

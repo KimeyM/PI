@@ -49,4 +49,19 @@ router.get('/:id', async (req, res) => {
     };
 });
 
+// router.get('/activities', async (req, res) => {
+//     const { activity } = req.query
+//     const countries = []
+//     const countryactivity = await Country.findAll({
+//         include: {
+//             model: Activity,
+//             where: {
+//                 name: activity
+//             }
+//         }
+//     })
+//     res.send(countryactivity)
+// })
+
+
 module.exports = router;

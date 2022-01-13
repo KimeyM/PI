@@ -12,7 +12,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage/>} />
           <Route path="/countries" element={<Home/>} />
-          <Route path="/activity" element={<ActivityForm/>} />
           <Route path="/countries/:id" element={<Detail/>} />
         </Routes>
       </div>
