@@ -4,15 +4,7 @@
   background-color: #2b385c;
 }
 
-/* .allhome {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 5%;
-} */
-
 .grid {
-  /* grid-area: 1 / 2 / 2 / 5; */
   margin-left: 14px;
   margin-right: 2%;
   margin-top: 14px;
@@ -182,7 +174,6 @@ a:visited {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  /* background-color: #fff4; */
   padding: 10px;
 }
 
