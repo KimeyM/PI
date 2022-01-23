@@ -1,31 +1,33 @@
 ## Proyecto académico realizado en el Bootcamp Henry
 
 ### Herramientas utilizadas para el FrontEnd y BackEnd
-CSS
-ReactJs
-Redux
-Axios
-JavaScript
-NodeJs
-Npm
-ExpressJs
-Promises
-Sequelize
-PostgreSQL
-Dotenv
-Nodemon
+
+- CSS
+- ReactJs
+- Redux
+- Axios
+- JavaScript
+- NodeJs
+- Npm
+- ExpressJs
+- Promises
+- Sequelize
+- PostgreSQL
+- Dotenv
+- Nodemon
+  
 
 ### Descripción
-Se trata de una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
-Es posible buscar los países por nombre, ordenarlos, filtrarlos e incluso crear actividades turísticas a cada país mediante un formulario controlado.
+* Se trata de una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
+* Es posible buscar los países por nombre, ordenarlos, filtrarlos e incluso crear actividades turísticas a cada país mediante un formulario controlado.
 
 ### Instalación
-Situarse en la carpeta /api y realizar npm install desde terminal.
-Situarse en la carpeta /client y realizar npm install desde terminal.
+* Situarse en la carpeta /api y realizar npm install desde terminal. 
+* Situarse en la carpeta /client y realizar npm install desde terminal.
 
 ### Iniciar el proyecto
-Situarse en /api y desde la terminal usar el comando npm start.
-Situarse en /client y desde la terminal usar el comando npm start.
+* Situarse en /api y desde la terminal usar el comando npm start.
+* Situarse en /client y desde la terminal usar el comando npm start.
 
 ## HOME
 <img src = "./Home1.png" >
