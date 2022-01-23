@@ -20,6 +20,12 @@ Se trata de una Single Page Application (SPA) de países con sus característica
 Es posible buscar los países por nombre, ordenarlos, filtrarlos e incluso crear actividades turísticas a cada país mediante un formulario controlado.
 
 <img src = "./Home1.png" >
+<img src = "./Home2.png" >
+<img src = "./Id.png" >
+<img src = "./Form1.png" >
+<img src = "./Form2.png" >
+<img src = "./FilterAct.png" >
+<img src = "./About.png" >
 Instalación
 Situarse en la carpeta /api y realizar npm install desde terminal.
 Situarse en la carpeta /client y realizar npm install desde terminal.
