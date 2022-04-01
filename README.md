@@ -18,7 +18,7 @@
   
 
 ### Descripción
-* Se trata de una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
+* Se trata de mi primer proyecto. Es una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
 * Es posible buscar los países por nombre, ordenarlos, filtrarlos e incluso crear actividades turísticas a cada país mediante un formulario controlado.
 
 ### Instalación
