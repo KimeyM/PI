@@ -1,4 +1,4 @@
-# Countries App
+# *Countries App*
 
 ## Proyecto académico realizado en el Bootcamp Henry
 
@@ -19,13 +19,8 @@
 * Se trata de mi primer proyecto. Es una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
 * Es posible buscar los países por nombre, ordenarlos, filtrarlos e incluso crear actividades turísticas a cada país mediante un formulario controlado.
 
-### Instalación
-* Situarse en la carpeta /api y realizar npm install desde terminal. 
-* Situarse en la carpeta /client y realizar npm install desde terminal.
-
-### Iniciar el proyecto
-* Situarse en /api y desde la terminal usar el comando npm start.
-* Situarse en /client y desde la terminal usar el comando npm start.
+### Mirá mi proyecto [aquí].
+[aquí]: https://youtu.be/EnA6AvkiJFE
 
 ## HOME
 <img src = "./Home1.png" >
