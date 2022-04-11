@@ -2,7 +2,7 @@
 
 ## Proyecto académico realizado en el Bootcamp Henry
 
-### Herramientas utilizadas para el FrontEnd y BackEnd
+### Realizado con:
 
 - CSS
 - ReactJs
@@ -10,14 +10,10 @@
 - Axios
 - JavaScript
 - NodeJs
-- Npm
 - ExpressJs
 - Promises
 - Sequelize
 - PostgreSQL
-- Dotenv
-- Nodemon
-  
 
 ### Descripción
 * Se trata de mi primer proyecto. Es una Single Page Application (SPA) de países con sus características detalladas, en la cual se accedió a dicha información a través de la API "Rest Countries".
